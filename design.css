@@ -1,0 +1,128 @@
+body {
+  font-family: 'Comic Sans MS', 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #87CEEB, #E0F6FF);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  width: 500px; /* Increased further to fit envelope shapes */
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+h1 {
+  color: #4682B4;
+  margin-bottom: 10px;
+}
+
+
+.sad img {
+  width: 100px; /* Set desired width (e.g., 100px for larger size) */
+  height: auto; /* Keeps aspect ratio */
+  animation: beat 1s infinite; /* Retains the beating animation */
+}
+
+p {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.heart {
+  font-size: 40px;
+  animation: beat 1s infinite;
+}
+.card img{
+    height: 250px;
+    width: 200px;
+}
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: #4682B4;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #4169E1;
+  transform: scale(1.05);
+}
+
+.envelopes {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.envelope {
+  width: 120px;
+  height: 80px;
+  background: #B0E0E6;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #4682B4;
+  border-radius: 5px 5px 0 0; /* Rounded top corners for envelope body */
+}
+
+.envelope::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 20px solid #B0E0E6; /* Triangular flap */
+}
+
+.envelope::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 20px solid #4682B4; /* Border for flap */
+  border-bottom-color: #4682B4;
+  z-index: -1; /* Behind the flap color */
+}
+
+.envelope:hover {
+  background: #87CEEB;
+  transform: scale(1.1);
+}
+
+.envelope:hover::before {
+  border-bottom-color: #87CEEB; /* Match hover color for flap */
+}
